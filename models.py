@@ -283,7 +283,7 @@ class TicTac(object):
             elif k == 0:
                 str_val += 'A'
             else:
-                str_val += 'Z'
+                str_val += '-'
         return str_val
 
     @staticmethod
@@ -296,8 +296,8 @@ class TicTac(object):
                 state[k] = 1
         return state
     
-    @classmethod
-    def who_won(cls, state):
+    @staticmethod
+    def who_won(state):
         if state[0] != -1:
             if state[0] == state[1] and state[0] == state[2]:
                 if state[0] == 0:
@@ -347,7 +347,6 @@ class TicTac(object):
             return -2
         return -1
 
-    
     def play(self):
         self.__init__()
         while(1):
@@ -357,7 +356,7 @@ class TicTac(object):
             if action < 0 or action > 8:
                 print("not allowed")
             self.perform(action)
-            result = self.who_won()
+            result = TicTac.who_won(self.state)
 
             if result == 0 or result == 1:
                 print("player {0} won".format(result))
