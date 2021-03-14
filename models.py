@@ -1,3 +1,4 @@
+import os
 import pickle
 import numpy as np
 import copy
@@ -174,7 +175,7 @@ class TicTacAgent:
     def find_symmatric_states(state):
         states = set()
         state_mat = state.reshape((3,3))
-        states.addstate_mat.reshape(-1)
+        states.add(state_mat.reshape(-1))
         states.add(state_mat[2::-1,:].reshape(-1))
         states.add(state_mat[:,2::-1].reshape(-1))
         states.add(state_mat[2::-1,2::-1].reshape(-1))
@@ -192,7 +193,7 @@ class TicTac(object):
     
     STATES = set()
     @staticmethod
-    def calc_all_states(prev_state, turn=1):
+    def calc_next_states(prev_state, turn=1):
         count = 1
         prev_state_str = TicTac.string_state(prev_state)
         TicTac.STATES.add(prev_state_str)
@@ -201,7 +202,7 @@ class TicTac(object):
                 continue
             state = copy.deepcopy(prev_state)
             state[action] = turn
-            count += TicTac.calc_all_states(state,  1-turn)
+            count += TicTac.calc_next_states(state,  1-turn)
         return count
 
     @staticmethod
@@ -294,8 +295,9 @@ class TicTac(object):
             elif str_val[k] == 'B':
                 state[k] = 1
         return state
-    @staticmethod
-    def who_won(state):
+    
+    @classmethod
+    def who_won(cls, state):
         if state[0] != -1:
             if state[0] == state[1] and state[0] == state[2]:
                 if state[0] == 0:
