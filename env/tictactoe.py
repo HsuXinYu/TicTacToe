@@ -5,7 +5,8 @@ from gym.utils import seeding
 import numpy as np
 
 class TicTacToeEnv(gym.Env):
-    def __init__(self):
+    def __init__(self, id=0):
+        self.id = id
         self.action_space = spaces.Discrete(9)
         self.observation_space = spaces.MultiDiscrete([3]*9)
         self.seed()
@@ -34,10 +35,10 @@ class TicTacToeEnv(gym.Env):
             self.state[action] = turn
             winner_id, done= TicTacToeEnv.who_won(self.state)
             if done:
-                if winner_id == 1:
-                    reward = 1
+                if winner_id == self.id:
+                    reward = 10
                 else:
-                    reward = -1
+                    reward = -10
             else:
                 reward = 0
         observation = self.state
@@ -102,16 +103,22 @@ class TicTacToeEnv(gym.Env):
                 player = rendering.FilledPolygon([(l, b), (l, t), (r, t), (r, b)])
                 playertrans = rendering.Transform()
                 player.add_attr(playertrans)
+                player.set_color(1.0,1.0,1.0)
                 self.boxes.append(player)
                 self.viewer.add_geom(player)
             
             for i in range(2):
                 x = screen_width//2 - (size//2)*1.05 + i*size*1.05
                 y = screen_height//2 - (size//2)*1.05 + i*size*1.05
-                track = rendering.Line((x, 0), (x, screen_height))
+
+                y_min = screen_height//2 - size*1.1*1.5
+                y_max = screen_height//2 + size*1.1*1.5
+                x_min = screen_width//2 - size*1.1*1.5
+                x_max = screen_width//2 + size*1.1*1.5
+                track = rendering.Line((x, y_min), (x, y_max))
                 track.set_color(0, 0, 0)
                 self.viewer.add_geom(track)
-                track = rendering.Line((0, y), (screen_width, y))
+                track = rendering.Line((x_min, y), (x_max, y))
                 track.set_color(0, 0, 0)
                 self.viewer.add_geom(track)
         if self.state is None:
