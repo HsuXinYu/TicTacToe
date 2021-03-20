@@ -62,7 +62,7 @@ function update_html(game_state) {
                     // $(div_id).css("background-color","blue");
                     break;
                 default:
-                    $(div_id).css("background-color", "gray");
+                    // $(div_id).css("background-color", "gray");
                     break;
             }
         }
@@ -104,15 +104,15 @@ $(document).ready(function () {
                 break;
             case -1:
                 $("#status").html("Ongoing...");
-                $("#status").css("background-color", "white");
+                // $("#status").css("background-color", "white");
                 break;
             case -2:
                 $("#status").html("Draw");
-                $("#status").css("background-color", "red");
+                // $("#status").css("background-color", "red");
                 break;
             default:
                 $("#status").html("");
-                $("#status").css("background-color", "white");
+                // $("#status").css("background-color", "white");
                 break;
         }
     });
