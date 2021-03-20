@@ -51,7 +51,7 @@ function update_html(game_state) {
     for (row_id = 0; row_id < 3; row_id++) {
         for (col_id = 0; col_id < 3; col_id++) {
             var div_id = "#cell_" + row_id.toString() + "_" + col_id.toString();
-            console.log(div_id + "" + game_state[row_id][col_id].toString());
+            // console.log(div_id + "" + game_state[row_id][col_id].toString());
             switch (game_state[row_id][col_id]) {
                 case 1:
                     $(div_id).addClass("angel");
@@ -82,12 +82,19 @@ function reset_game(e) {
 
 $(document).ready(function () {
     $('.cell').on('click', function (e) {
-        console.log(this.id[5]);
+        // console.log(this.id[5]);
         var row_id = parseInt(this.id[5]);
         var col_id = parseInt(this.id[7]);
         if (game_state[row_id][col_id] == -1) {
             game_state[row_id][col_id] = turn;
             turn = 1 - turn;
+        }
+
+        // Stop game after someone wins
+        var cls = String($("#status").attr("class"));
+        // console.log(cls);
+        if(cls.includes("angel") || cls.includes("demon")){
+            return;
         }
         update_html(game_state);
         result_val = who_won(game_state);
