@@ -100,12 +100,12 @@ $(document).ready(function () {
         result_val = who_won(game_state);
         switch (result_val) {
             case 1:
-                $("#status").html("Player 1 Won.");
+                $("#status").html("Won.");
                 // $("#status").css("background-color","yellow");
                 $("#status").addClass("angel");
                 break;
             case 0:
-                $("#status").html("Player 0 Won.");
+                $("#status").html("Won.");
                 // $("#status").css("background-color","blue");
                 $("#status").addClass("demon");
                 break;
