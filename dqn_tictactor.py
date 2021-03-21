@@ -1,23 +1,24 @@
 import numpy as np
 import gym
 
-from keras.models import Sequential
-from keras.layers import Dense, Activation, Flatten
-from keras.optimizers import Adam
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense, Activation, Flatten
+from tensorflow.keras.optimizers import Adam
 
 from rl.agents.dqn import DQNAgent
 from rl.policy import BoltzmannQPolicy
 from rl.memory import SequentialMemory
 
 
-ENV_NAME = 'CartPole-v0'
+# ENV_NAME = 'CartPole-v0'
+# env = gym.make(ENV_NAME)
 
 
 # Get the environment and extract the number of actions.
-# from env import tictactoe
-# env = tictactoe.TicTacToeEnv()
+from env import tictactoe
+env = tictactoe.TicTacToeEnv0(id=0)
+ENV_NAME = 'ttt1'
 
-env = gym.make(ENV_NAME)
 np.random.seed(123)
 env.seed(123)
 nb_actions = env.action_space.n
@@ -43,13 +44,16 @@ dqn = DQNAgent(model=model, nb_actions=nb_actions, memory=memory, nb_steps_warmu
                target_model_update=1e-2, policy=policy)
 dqn.compile(Adam(lr=1e-3), metrics=['mae'])
 
+dqn.load_weights('dqn_{}_weights.h5f'.format(ENV_NAME))
+
 # Okay, now it's time to learn something! We visualize the training here for show, but this
 # slows down training quite a lot. You can always safely abort the training prematurely using
 # Ctrl + C.
-dqn.fit(env, nb_steps=50000, visualize=True, verbose=2)
+dqn.fit(env, nb_steps=50000, visualize=False, verbose=2)
 
 # After training is done, we save the final weights.
 dqn.save_weights('dqn_{}_weights.h5f'.format(ENV_NAME), overwrite=True)
-
+dqn.model.save('dqn_{}.h5'.format(ENV_NAME))
+# dqn.load_weights('dqn_{}_weights.h5f'.format(ENV_NAME))
 # Finally, evaluate our algorithm for 5 episodes.
-dqn.test(env, nb_episodes=5, visualize=True)
+dqn.test(env, nb_episodes=5, visualize=True, nb_max_episode_steps=10)
