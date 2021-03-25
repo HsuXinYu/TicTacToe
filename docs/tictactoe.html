@@ -5,11 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tic Tac Toe</title>
     <style>
-         @media(min-width:1024px){
         body{
-            background: url(images/海底世界_1024.gif);
-            background-size: 100% 100%;
-            /* background-position:center center; */
+            margin: 0px;
+            padding: 0px;
+            background-image: url(images/海底世界_1920x1080.gif);
+            background-position: center center;
+            background-size: 100vw 100vh;
+            background-attachment: fixed;
             /* background-repeat:no-repeat; */
         }
         .container {
@@ -38,12 +40,14 @@
             background-image: url(images/多莉.gif);
             background-repeat:no-repeat;
         }   
-        }
         @media(max-width:1024px){
         body{
-            background: url(images/海底世界_768.gif);
-            background-size: 100% 100%;
-            /* background-position:center center; */
+            margin: 0px;
+            padding: 0px;
+            background-image: url(images/海底世界_768x1024.gif);
+            background-position: center center;
+            background-size: 100vw 100vh;
+            background-attachment: fixed;
             /* background-repeat:no-repeat; */
         }
         .container {
@@ -58,7 +62,7 @@
             width: 80px;
             height: 80px;
         }
-        .cell {
+        .cell{
             width: 80px;
             height: 80px;
             margin-bottom: 10px;
