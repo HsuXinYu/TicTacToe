@@ -1,2 +1,2 @@
 # TicTacToe
-TicTacToe Game with Reinforcement learning
+https://hsuxinyu.github.io/TicTacToe/tictactoe.html
