@@ -1,104 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tic Tac Toe</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Toe</title>
     <style>
-        body{
-            margin: 0px;
-            padding: 0px;
-            background-image: url(images/海底世界_1920x1080.gif);
-            background-position: center center;
-            background-size: 100vw 100vh;
-            background-attachment: fixed;
-            /* background-repeat:no-repeat; */
+      body {
+        margin: 0px;
+        padding: 0px;
+        background-image: url(images/ocean_world_1920x1080.png);
+        background-position: center center;
+        background-size: 100vw 100vh;
+        background-attachment: fixed;
+        /* background-repeat:no-repeat; */
+      }
+      button {
+        background-color: transparent;
+        border-color: transparent;
+      }
+      #status {
+        width: 50px;
+        height: 50px;
+      }
+      .container {
+        width: 500px;
+        height: 500px;
+        display: flex;
+        margin: auto;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+      .cell {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 10px;
+        background-image: url(images/shell.png);
+      }
+      .nemo {
+        background-image: url(images/nemo.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+      }
+      .dolly {
+        background-image: url(images/dolly.png);
+        background-repeat: no-repeat;
+        background-size: 100%;
+      }
+      @media (max-width: 1024px) {
+        body {
+          margin: 0px;
+          padding: 0px;
+          background-image: url(images/ocean_world_768x1024.png);
+          background-position: center center;
+          background-size: 100vw 100vh;
+          background-attachment: fixed;
+          /* background-repeat:no-repeat; */
+        }
+        button img {
+          width: 50%;
+          height: 50%;
+        }
+        #status {
+          width: 30px;
+          height: 30px;
         }
         .container {
-            width: 500px;
-            height: 500px;
-            display: flex;
-            margin: auto;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-        #status{
-            width: 150px;
-            height: 150px;
+          width: 250px;
+          height: 250px;
+          display: flex;
+          margin: auto;
+          justify-content: space-around;
+          flex-wrap: wrap;
         }
         .cell {
-            width: 150px;
-            height: 150px;
-            margin-bottom: 10px;
-            background-image: url(images/貝殼.gif);
+          width: 80px;
+          height: 80px;
+          margin-bottom: 10px;
+          background-image: url(images/shell.png);
+          background-size: 100% 100%;
         }
-        .angel{
-            background-image: url(images/尼莫.gif);
-            background-repeat:no-repeat;
+        .nemo {
+          background-image: url(images/nemo.png);
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
         }
-        .demon{
-            background-image: url(images/多莉.gif);
-            background-repeat:no-repeat;
-        }   
-        @media(max-width:1024px){
-        body{
-            margin: 0px;
-            padding: 0px;
-            background-image: url(images/海底世界_768x1024.gif);
-            background-position: center center;
-            background-size: 100vw 100vh;
-            background-attachment: fixed;
-            /* background-repeat:no-repeat; */
+        .dolly {
+          background-image: url(images/dolly.png);
+          background-size: 100% 100%;
+          background-repeat: no-repeat;
         }
-        .container {
-            width: 250px;
-            height: 250px;
-            display: flex;
-            margin: auto;
-            justify-content: space-around;
-            flex-wrap: wrap;
-        }
-        #status{
-            width: 80px;
-            height: 80px;
-        }
-        .cell{
-            width: 80px;
-            height: 80px;
-            margin-bottom: 10px;
-            background-image: url(images/貝殼.gif);
-            background-size: 100% 100%;
-        }
-        .angel{
-            background-image: url(images/尼莫.gif);
-            background-size: 100% 100%;
-            background-repeat:no-repeat;
-        }
-        .demon{
-            background-image: url(images/多莉.gif);
-            background-size: 100% 100%;
-            background-repeat:no-repeat;
-        }
-        }
+      }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js" type="text/javascript"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"
+      type="text/javascript"
+    ></script>
     <script src="js/main.js"></script>
-    <body>
-        <button id="NewGame">New Game</button>
-        <button id="NewGame0">New Game: Player 0</button>
-        <button id="NewGame1">New Game: Player 1</button>
-        <div id="status"></div>
-        <div class="container">
-                    <div id="cell_0_0" class="cell"></div>
-                    <div id="cell_0_1" class="cell"></div>
-                    <div id="cell_0_2" class="cell"></div>
-                    <div id="cell_1_0" class="cell"></div>
-                    <div id="cell_1_1" class="cell"></div>
-                    <div id="cell_1_2" class="cell"></div>
-                    <div id="cell_2_0" class="cell"></div>
-                    <div id="cell_2_1" class="cell"></div>
-                    <div id="cell_2_2" class="cell"></div>
-        </div>
-    </body>
+  </head>
+
+  <body>
+    <button id="NewGame">New Game</button>
+    <button id="NewGame0"><img src="images/player1.png" alt="Play 1" /></button>
+    <button id="NewGame1"><img src="images/player2.png" alt="Play 2" /></button>
+    <hr />
+    <div id="status"></div>
+    <hr />
+    <div class="container">
+      <div id="cell_0_0" class="cell"></div>
+      <div id="cell_0_1" class="cell"></div>
+      <div id="cell_0_2" class="cell"></div>
+      <div id="cell_1_0" class="cell"></div>
+      <div id="cell_1_1" class="cell"></div>
+      <div id="cell_1_2" class="cell"></div>
+      <div id="cell_2_0" class="cell"></div>
+      <div id="cell_2_1" class="cell"></div>
+      <div id="cell_2_2" class="cell"></div>
+    </div>
+  </body>
 </html>
