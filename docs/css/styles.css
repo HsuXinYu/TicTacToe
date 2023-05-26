@@ -1,0 +1,98 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  background-image: url(../images/ocean_world_1920x1080.png);
+  background-position: center center;
+  background-size: 100vw 100vh;
+  background-attachment: fixed;
+  /* background-repeat:no-repeat; */
+}
+.game {
+  margin: 20px;
+}
+.btn-area {
+  display: flex;
+}
+button {
+  background-color: transparent;
+  border-color: transparent;
+  cursor: pointer;
+}
+#status {
+  width: 100px;
+  height: 100px;
+  color: white;
+}
+.container {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  margin: auto;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.cell {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 10px;
+  background-image: url(../images/shell.png);
+  cursor: pointer;
+}
+.nemo {
+  background-image: url(../images/nemo.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.dolly {
+  background-image: url(../images/dolly.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+@media (max-width: 1024px) {
+  body {
+    margin: 0px;
+    padding: 0px;
+    background-image: url(../images/ocean_world_768x1024.png);
+    background-position: center center;
+    background-size: 100vw 100vh;
+    background-attachment: fixed;
+    /* background-repeat:no-repeat; */
+  }
+  .button button {
+    width: 50px;
+    height: 50px;
+  }
+  .button img {
+    width: 40px;
+    height: 40px;
+  }
+  #status {
+    width: 50px;
+    height: 50px;
+  }
+  .container {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    margin: auto;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  .cell {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+    background-image: url(../images/shell.png);
+    background-size: 100% 100%;
+  }
+  .nemo {
+    background-image: url(../images/nemo.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  .dolly {
+    background-image: url(../images/dolly.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+}
