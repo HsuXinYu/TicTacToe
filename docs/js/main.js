@@ -88,6 +88,7 @@ function update_html(game_state) {
   for (row_id = 0; row_id < 3; row_id++) {
     for (col_id = 0; col_id < 3; col_id++) {
       var div_id = "#cell_" + row_id.toString() + "_" + col_id.toString();
+      console.log(div_id);
       // console.log(div_id + "" + game_state[row_id][col_id].toString());
       switch (game_state[row_id][col_id]) {
         case PLAYER_1:

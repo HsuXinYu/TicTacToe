@@ -5,13 +5,22 @@ body {
   background-position: center center;
   background-size: 100vw 100vh;
   background-attachment: fixed;
-  /* background-repeat:no-repeat; */
 }
 .game {
-  margin: 20px;
+  margin: 2% 0;
+  display: flex;
+  justify-content: space-around;
 }
 .btn-area {
   display: flex;
+  width: 60%;
+  align-items: center;
+}
+#NewGame {
+  height: 100px;
+  text-align: center;
+  color: white;
+  border-color: white;
 }
 button {
   background-color: transparent;
@@ -48,6 +57,7 @@ button {
   background-repeat: no-repeat;
   background-size: 100%;
 }
+
 @media (max-width: 1024px) {
   body {
     margin: 0px;
@@ -58,25 +68,14 @@ button {
     background-attachment: fixed;
     /* background-repeat:no-repeat; */
   }
-  .button button {
-    width: 50px;
-    height: 50px;
-  }
-  .button img {
-    width: 40px;
-    height: 40px;
-  }
-  #status {
-    width: 50px;
-    height: 50px;
+  button img {
+    width: 80%;
+    height: 80%;
   }
   .container {
-    width: 250px;
-    height: 250px;
-    display: flex;
-    margin: auto;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    width: 50%;
+    height: 50%;
+    margin-top: 10%;
   }
   .cell {
     width: 80px;
