@@ -60,12 +60,7 @@ button {
 
 @media (max-width: 1024px) {
   body {
-    margin: 0px;
-    padding: 0px;
     background-image: url(../images/ocean_world_768x1024.png);
-    background-position: center center;
-    background-size: 100vw 100vh;
-    background-attachment: fixed;
   }
   button img {
     width: 80%;
