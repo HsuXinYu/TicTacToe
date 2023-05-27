@@ -59,39 +59,19 @@ button {
 }
 
 @media (max-width: 1024px) {
-  body {
-    margin: 0px;
-    padding: 0px;
-    background-image: url(../images/ocean_world_768x1024.png);
-    background-position: center center;
-    background-size: 100vw 100vh;
-    background-attachment: fixed;
-    /* background-repeat:no-repeat; */
-  }
   button img {
     width: 80%;
     height: 80%;
   }
   .container {
-    width: 50%;
-    height: 50%;
+    width: 300px;
+    height: 300px;
     margin-top: 10%;
   }
   .cell {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 10px;
-    background-image: url(../images/shell.png);
+    width: 90px;
+    height: 90px;
+    margin-bottom: 5px;
     background-size: 100% 100%;
-  }
-  .nemo {
-    background-image: url(../images/nemo.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-  }
-  .dolly {
-    background-image: url(../images/dolly.png);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
   }
 }
